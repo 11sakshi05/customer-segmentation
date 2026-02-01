@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Customer Segmentation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">  <!--import the style sheet -->
+
+</head>
+<body>
+    <div class="container">
+        <h2>Customer Segmentation Predictor</h2>
+
+        <form action="/predict" method="post">
+            <label>Annual Income (k$):</label>
+            <input type="number" step="any" name="income" required>
+
+            <label>Spending Score (1-100):</label>
+            <input type="number" step="any" name="spending" required>
+
+            <button type="submit">Predict Customer Type</button>
+        </form>
+
+       <div class="result">
+    <h3>{{ prediction_title }}</h3>
+    <p>{{ prediction_desc }}</p>
+     <p><strong>Business Recommendation:</strong> {{ prediction_recommend }}</p>
+     <!-- all the parameters either input or output are named same in app.py file 
+      and in index.html file to fetch tags and take the response and request -->
+</div>
+
+    </div>
+</body>
